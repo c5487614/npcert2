@@ -420,10 +420,20 @@ ScriptablePluginObject::Invoke(NPIdentifier name, const NPVariant *args,
 	NPVariant alertValue;
 	NPVariant returnValue;
 	STRINGZ_TO_NPVARIANT("hello world",alertValue);
-	NPN_Invoke(mNpp,sWindowObj,sAlert,&alertValue,1,&returnValue);
+	//NPN_Invoke(mNpp,sWindowObj,sAlert,&alertValue,1,&returnValue);
 
 	FFHelper* ffhelper = new FFHelper();
-	ffhelper->Invoke(mNpp,sWindowObj,"alert",&alertValue,1,&returnValue);
+	//ffhelper->Invoke(mNpp,sWindowObj,"alert",&alertValue,1,&returnValue);
+
+	//ffhelper->GetVersion();
+
+	char* p7SignedData = ffhelper->P7Sign("","123");
+
+	MessageBox(NULL,_T(p7SignedData),_T("Information"),MB_OK);
+
+	NPVariant npp7SignedData;
+	STRINGZ_TO_NPVARIANT(p7SignedData, npp7SignedData);
+	ffhelper->Invoke(mNpp,sWindowObj,"alert",&npp7SignedData,1,&returnValue);
 
 	NPN_ReleaseVariantValue(&returnValue);
 
