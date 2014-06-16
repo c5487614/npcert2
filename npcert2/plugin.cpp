@@ -420,20 +420,20 @@ ScriptablePluginObject::Invoke(NPIdentifier name, const NPVariant *args,
 	NPVariant alertValue;
 	NPVariant returnValue;
 	STRINGZ_TO_NPVARIANT("hello world",alertValue);
-	//NPN_Invoke(mNpp,sWindowObj,sAlert,&alertValue,1,&returnValue);
+	NPN_Invoke(mNpp,sWindowObj,sAlert,&alertValue,1,&returnValue);
 
-	FFHelper* ffhelper = new FFHelper();
+	//FFHelper* ffhelper = new FFHelper();
 	//ffhelper->Invoke(mNpp,sWindowObj,"alert",&alertValue,1,&returnValue);
 
 	//ffhelper->GetVersion();
 
-	char* p7SignedData = ffhelper->P7Sign("","123");
+	//char* p7SignedData = ffhelper->P7Sign("","123");
 
-	MessageBox(NULL,_T(p7SignedData),_T("Information"),MB_OK);
+	//MessageBox(NULL,_T(p7SignedData),_T("Information"),MB_OK);
 
-	NPVariant npp7SignedData;
-	STRINGZ_TO_NPVARIANT(p7SignedData, npp7SignedData);
-	ffhelper->Invoke(mNpp,sWindowObj,"alert",&npp7SignedData,1,&returnValue);
+	//NPVariant npp7SignedData;
+	//STRINGZ_TO_NPVARIANT(p7SignedData, npp7SignedData);
+	//ffhelper->Invoke(mNpp,sWindowObj,"alert",&npp7SignedData,1,&returnValue);
 
 	NPN_ReleaseVariantValue(&returnValue);
 
@@ -569,28 +569,34 @@ CPlugin::CPlugin(NPP pNPInstance) :
     str.UTF8Characters = "document.getElementById('result').innerHTML += '<p>' + 'NPN_Evaluate() test, document = ' + this + '</p>';";
     str.UTF8Length = strlen(str.UTF8Characters);
 
-    NPN_Evaluate(m_pNPInstance, doc, &str, NULL);
+    //NPN_Evaluate(m_pNPInstance, doc, &str, NULL);
 
 	
 
     NPN_ReleaseObject(doc);
   }
 
+  
   NPVariant barval;
   NPN_GetProperty(m_pNPInstance, sWindowObj, sBar_id, &barval);
 
   NPVariant arg;
   OBJECT_TO_NPVARIANT(sWindowObj, arg);
 
+  
+
   NPN_InvokeDefault(m_pNPInstance, NPVARIANT_TO_OBJECT(barval), &arg, 1,
                     &rval);
 
   if (NPVARIANT_IS_INT32(rval) && NPVARIANT_TO_INT32(rval) == 4) {
+		
     printf ("Default function call SUCCEEDED!\n");
   } else {
+	  
     printf ("Default function call FAILED!\n");
   }
 
+  
   NPN_ReleaseVariantValue(&barval);
   NPN_ReleaseVariantValue(&rval);
 

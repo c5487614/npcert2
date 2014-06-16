@@ -46,6 +46,18 @@ END
 
 #endif    // APSTUDIO_INVOKED
 
+#endif    // Chinese (P.R.C.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (Neutral) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_NEUTRAL
+#pragma code_page(1252)
+#endif //_WIN32
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -73,19 +85,19 @@ BEGIN
             VALUE "FileVersion", "1, 0, 0, 1"
             VALUE "InternalName", "npcert2"
             VALUE "LegalCopyright", "Copyright (C) 2014"
+            VALUE "MIMEType", "application/x-my-extension"
             VALUE "OriginalFilename", "npcert2.dll"
             VALUE "ProductName", "npcert2 Dynamic Link Library"
             VALUE "ProductVersion", "1, 0, 0, 1"
-			VALUE "MIMEType", "application/test-plugin"
         END
     END
     BLOCK "VarFileInfo"
     BEGIN
-        VALUE "Translation", 0x804, 1200
+        VALUE "Translation", 0x409, 1252
     END
 END
 
-#endif    // Chinese (P.R.C.) resources
+#endif    // English (Neutral) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

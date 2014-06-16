@@ -45,7 +45,8 @@
 char*
 NPP_GetMIMEDescription(void)
 {
-  return "application/mozilla-npruntime-scriptable-plugin:.foo:Scriptability Demo Plugin";
+	return "application/x-my-extension";
+  //return "application/mozilla-npruntime-scriptable-plugin:.foo:Scriptability Demo Plugin";
 }
 
 
