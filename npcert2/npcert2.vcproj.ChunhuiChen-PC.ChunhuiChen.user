@@ -9,7 +9,7 @@
 			Name="Debug|Win32"
 			>
 			<DebugSettings
-				Command=""
+				Command="D:\FireFox\firefox.exe"
 				WorkingDirectory=""
 				CommandArguments=""
 				Attach="false"
